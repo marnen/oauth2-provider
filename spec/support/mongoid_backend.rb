@@ -6,7 +6,7 @@ class ExampleResourceOwner
   field :username
   field :password
 
-  references_many :authorizations, :class_name => "OAuth2::Provider::Models::Mongoid::Authorization"
+  has_many :authorizations, :class_name => "OAuth2::Provider::Models::Mongoid::Authorization"
 
   def self.authenticate_with_username_and_password(username, password)
     where(:username => username, :password => password).first
